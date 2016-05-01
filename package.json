@@ -1,0 +1,17 @@
+{
+  "name": "naughtsandcrosses",
+  "version": "1.0.0",
+  "description": "html css and javascript tutorial",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

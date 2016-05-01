@@ -1,0 +1,27 @@
+#game  {
+    width: 200px;
+}
+
+#game table  td {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.activePanel {
+    display:   block;
+}
+
+.inactivePanel {
+    display:  none;
+}
+
+.naught{
+    background-color: red; 
+}
+
+.cross {
+    background-color: green;
+}
+
