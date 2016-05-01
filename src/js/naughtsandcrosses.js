@@ -39,15 +39,17 @@ var getPlayerToken = function() {
 }
 
 var allValuesEqual = function(values){
-    if (values === undefined)
-        return false;
     var result = true;
     
     var current = values[0];
-    for(var i = 1; i < values.length; i++){
-        if (current !=  values[i] || values[i] != ""){
-            result = false;
-            break;
+    if (current === "")
+        result = false;
+    else {
+        for(var i = 1; i < values.length; i++){
+            if (current !=  values[i] || values[i] == ""){
+                result = false;
+                break;
+            }
         }
     }
     return result;
@@ -81,9 +83,10 @@ var getAllDiagonals = function(fromTopRight){
         }
         else {
             if ((gameArray[i].row === 0 &&  gameArray[i].col === 2) || (gameArray[i].row === 1 &&  gameArray[i].col === 2) || (gameArray[i].row === 2 &&  gameArray[i].col === 0) )
-            set.push(gameArray[i].value);
+                set.push(gameArray[i].value);
         }  
     }
+    return set;
 }
 
 var playWinsGame = function(row, col) {
@@ -113,7 +116,6 @@ var setCellStyle = function(row, col, value){
 
 var setPlayer = function(){
     player = player === 1 ? 2 : 1;
-    
 }
 
 var getPlayerMessage =function(){
