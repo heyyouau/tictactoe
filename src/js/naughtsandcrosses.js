@@ -107,10 +107,15 @@ var playWinsGame = function(row, col) {
    
 }
 
-var setCellStyle = function(row, col, value){
-    var cell = $("#gameTable").find("tr").eq(row).find("td").eq(col); 
+var makeId =function(row, col){
+    return "c" + row + "_" + col;
+}
 
-    cell.addClass(value);
+var setCellStyle = function(row, col, value){
+    var id = makeId(row, col);
+    var cell =  document.getElementById(id); //$("#gameTable").find("tr").eq(row).find("td").eq(col); 
+
+    cell.className = cell.className + " " + value;
 }
 
 
@@ -123,14 +128,18 @@ var getPlayerMessage =function(){
 }
 
 var startNewGame = function() {
-    $("#welcome").removeClass("activePanel");
-    $("#welcome").addClass("inactivePanel")
+    document.getElementById("welcome").className ="inactivePanel";
+    document.getElementById("game").className ="activePanel";
+    // $("#welcome").removeClass("activePanel");
     
-    $("#game").addClass("activePanel")
-    $("#game").removeClass("inactivePanel")
+    // $("#welcome").addClass("inactivePanel")
+    
+    // $("#game").addClass("activePanel")
+    // $("#game").removeClass("inactivePanel")
     
     initGame();
-    $("#player").html(getPlayerMessage());
+    document.getElementById("player").innerHTML = getPlayerMessage();
+    //$("#player").html(getPlayerMessage());
     
 }
 
@@ -143,7 +152,8 @@ var play = function(row, col){
         setCellStyle(row, col, currentCell.value);
         if (!playWinsGame(row, col)){
             setPlayer();
-            $("#player").html(getPlayerMessage());
+            document.getElementById("player").innerHTML =getPlayerMessage(); 
+            
         }
         else {
             alert("you win!")
