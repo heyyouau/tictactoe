@@ -1,6 +1,7 @@
 "use strict";
 
 var player = 1;
+var gameArray = [];
 
 var cellValue = function(row, col){
     this.row = row;
@@ -8,7 +9,6 @@ var cellValue = function(row, col){
     this.value = "";
 }
 
-var gameArray = [];
 
 var findCell = function(row, col){
     var cell;
@@ -103,8 +103,6 @@ var playWinsGame = function(row, col) {
         return true;
         
     return false;
-    
-   
 }
 
 var makeId =function(row, col){
@@ -113,7 +111,7 @@ var makeId =function(row, col){
 
 var setCellStyle = function(row, col, value){
     var id = makeId(row, col);
-    var cell =  document.getElementById(id); //$("#gameTable").find("tr").eq(row).find("td").eq(col); 
+    var cell =  document.getElementById(id); 
 
     cell.className = cell.className + " " + value;
 }
@@ -130,17 +128,9 @@ var getPlayerMessage =function(){
 var startNewGame = function() {
     document.getElementById("welcome").className ="inactivePanel";
     document.getElementById("game").className ="activePanel";
-    // $("#welcome").removeClass("activePanel");
-    
-    // $("#welcome").addClass("inactivePanel")
-    
-    // $("#game").addClass("activePanel")
-    // $("#game").removeClass("inactivePanel")
     
     initGame();
     document.getElementById("player").innerHTML = getPlayerMessage();
-    //$("#player").html(getPlayerMessage());
-    
 }
 
 var play = function(row, col){
